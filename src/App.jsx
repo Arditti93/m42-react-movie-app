@@ -9,6 +9,8 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("")
   const [movies, setMovies] = useState([])
 
+  const [user, setUser] = useState()
+
   const searchMovies = async (title) => {
     const req = await fetch(`${API_URL}&s=${title}`)
     const res = await req.json()
@@ -22,7 +24,12 @@ const App = () => {
 
   return (
     <div className="app">
-      <Login />
+      <Login setter={setUser} />
+      {user ?
+        <h2>Hello welcome {user} you have logged in </h2>
+        :
+        <h2>Please log in</h2>
+      }
       {/* <h1>My movie app</h1>
 
       <div>
