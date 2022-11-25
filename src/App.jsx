@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import MovieCard from "./componets/MovieCard";
+// import MovieCard from "./componets/MovieCard";
+import Login from "./componets/Login";
 
 const API_URL = process.env.REACT_APP_API_URL
 
@@ -12,7 +13,7 @@ const App = () => {
     const req = await fetch(`${API_URL}&s=${title}`)
     const res = await req.json()
     setMovies(res.Search)
-    console.log(res.Search)
+    // console.log(res.Search)
   }
 
   useEffect (()=>{
@@ -21,7 +22,8 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>My movie app</h1>
+      <Login />
+      {/* <h1>My movie app</h1>
 
       <div>
         <input 
@@ -49,7 +51,7 @@ const App = () => {
             <h2>No movies found</h2>
           </div>
         )
-      }
+      } */}
     </div>
   );
 };
