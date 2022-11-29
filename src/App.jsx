@@ -2,6 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 // import MovieCard from "./componets/MovieCard";
 import Login from "./componets/Login";
+import ReadUsers from "./componets/ReadUsers";
+import UpdateUser from "./componets/UpdateUser";
+import DeleteUser from "./componets/DeleteUser";
+import CreateUser from "./componets/createUser";
 import { getCookie } from "./common";
 import { findUser } from "./utils";
 
@@ -36,8 +40,14 @@ const App = () => {
   return (
     <div className="app">
       <Login setter={setUser} />
+      <CreateUser setter={setUser} />
+      <ReadUsers />
       {user ?
-        <h2>Hello welcome {user} you have logged in </h2>
+        <div className="user">
+          <h2>Hello welcome {user} you have logged in </h2>
+          <UpdateUser user={user} />
+          <DeleteUser user={user} />
+        </div>
         :
         <h2>Please log in</h2>
       }
