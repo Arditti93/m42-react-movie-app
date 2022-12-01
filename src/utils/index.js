@@ -2,7 +2,7 @@ import { writeCookie } from "../common"
 
 export const loginUser = async (username, email, password, setter) => {
     try {
-        const response = await fetch("http://localhost:5001/loginUser", {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}loginUser`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -23,7 +23,7 @@ export const loginUser = async (username, email, password, setter) => {
 
 export const createUser = async (username, email, password, setter) => {
     try {
-        const response = await fetch("http://localhost:5001/addUser", {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}addUser`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -42,7 +42,7 @@ export const createUser = async (username, email, password, setter) => {
 
 export const findUser = async (cookieValue) => {
     try {
-        const response = await fetch("http://localhost:5001/loginUser", {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}loginUser`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export const findUser = async (cookieValue) => {
 
 export const readUsers = async () =>{
     try {
-        const response = await fetch('http://localhost:5001/readUsers', {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}readUsers`, {
             method: 'GET',
             headers: {"Content-type": "application/json"}
         })
@@ -74,7 +74,7 @@ export const readUsers = async () =>{
 
 export const updateUser = async(username, key, value) => {
     try {
-        const response = await fetch('http://localhost:5001/updateUser', {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}updateUser`, {
             method: "PUT",
             headers: {"Content-type": "application/json"},
             body: JSON.stringify({
@@ -93,7 +93,7 @@ export const updateUser = async(username, key, value) => {
 
 export const deleteUser = async(username) => {
     try {
-        const response = await fetch('http://localhost:5001/deleteUser', {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}deleteUser`, {
             method: "DELETE",
             headers: {"Content-type": "application/json"},
             body: JSON.stringify({
